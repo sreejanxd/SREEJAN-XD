@@ -1,7 +1,7 @@
 {
-  "name": "YourBot",
+  "name": "SREEJAN-XD",
   "description": "A WhatsApp bot built with Node.js",
-  "repository": "https://github.com/YourGitHubRepo/YourBot",
+  "repository": "https://github.com/sreejanxd/SREEJAN-XD",
   "logo": "https://i.ibb.co/NGV7HvS/bt.webp",
   "keywords": ["whatsapp", "bot", "node.js", "heroku"],
   "env": {
