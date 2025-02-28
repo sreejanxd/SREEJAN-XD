@@ -1,15 +1,72 @@
 {
   "name": "YourBot",
   "description": "A WhatsApp bot built with Node.js",
-  "repository": "https://github.com/YourGitHubRepo",
+  "repository": "https://github.com/YourGitHubRepo/YourBot",
+  "logo": "https://i.ibb.co/NGV7HvS/bt.webp",
+  "keywords": ["whatsapp", "bot", "node.js", "heroku"],
   "env": {
     "SESSION_ID": {
-      "description": "Session ID for WhatsApp Bot",
+      "description": "Session ID for WhatsApp Bot (QR Code required)",
       "required": true
     },
     "OWNER_NUMBER": {
-      "description": "Owner Number for Bot",
+      "description": "Owner's phone number in international format (e.g. 918123456789)",
       "required": true
+    },
+    "PREFIX": {
+      "description": "Prefix for bot commands",
+      "required": true,
+      "value": "."
+    },
+    "AUTO_READ": {
+      "description": "Enable or Disable Auto Read",
+      "required": true,
+      "value": "true"
+    },
+    "AUTO_STATUS_VIEW": {
+      "description": "Enable or Disable Auto Status View",
+      "required": true,
+      "value": "false"
+    },
+    "STICKER_PACK_NAME": {
+      "description": "Sticker Pack Name",
+      "required": true,
+      "value": "YourBot Stickers"
+    },
+    "STICKER_AUTHOR": {
+      "description": "Sticker Author Name",
+      "required": true,
+      "value": "Your Name"
+    },
+    "MODE": {
+      "description": "Bot mode (public/private)",
+      "required": true,
+      "value": "public"
+    },
+    "GLOBAL_SUDO": {
+      "description": "Enable global sudo (Allow everyone to control the bot)",
+      "required": true,
+      "value": "false"
     }
-  }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "scripts": {
+    "postdeploy": "npm run migrate"
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "Free"
+    }
+  },
+  "addons": [
+    {
+      "plan": "heroku-postgresql:hobby-dev"
+    }
+  ],
+  "metrics": true
 }
