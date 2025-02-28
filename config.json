@@ -4,5 +4,21 @@
   "OWNER_NUMBER": "918123456789",
   "PREFIX": ".",
   "AUTO_READ": true,
-  "AUTO_STATUS_VIEW": false
+  "AUTO_STATUS_VIEW": false,
+  "AUTO_REACT": false,
+  "AUTO_BIO": false,
+  "SAVE_STATUS": false,
+  "FULL_PP": false,
+  "ANTIDELETE": false,
+  "STICKER_PACK_NAME": "YourBot Stickers",
+  "STICKER_AUTHOR": "Your Name",
+  "MENU_PHOTO": "https://i.ibb.co/NGV7HvS/bt.webp",
+  "MENTION_TITLE": "Your Mention Title",
+  "MENTION_BODY": "Your Mention Body",
+  "MENTION_MEDIA_TYPE": "audio",
+  "MENTION_THUMBNAIL": "https://cdn.ironman.my.id/i/ae4q4q.jpg",
+  "MENTION_MEDIA_URL": "https://cdn.ironman.my.id/q/VPBYU.mp4",
+  "MENTION_SOURCE_URL": "https://wa.me/918420757226?text=Hii",
+  "MODE": "public",
+  "GLOBAL_SUDO": false
 }
