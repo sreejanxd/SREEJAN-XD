@@ -8,9 +8,10 @@
       "description": "Owner's WhatsApp Number (with @s.whatsapp.net)",
       "value": "1234567890@s.whatsapp.net"
     },
-    "HEROKU_APP_NAME": {
-      "description": "Heroku App Name",
-      "value": "your-heroku-app"
+    "AUTO_STATUS_VIEW": {
+      "description": "Enable or Disable Auto Status View",
+      "value": "true",
+      "required": true
     }
   },
   "buildpacks": [
