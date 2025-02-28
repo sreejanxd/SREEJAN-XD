@@ -1,0 +1,15 @@
+{
+  "name": "YourBot",
+  "description": "A WhatsApp bot built with Node.js",
+  "repository": "https://github.com/YourGitHubRepo",
+  "env": {
+    "SESSION_ID": {
+      "description": "Session ID for WhatsApp Bot",
+      "required": true
+    },
+    "OWNER_NUMBER": {
+      "description": "Owner Number for Bot",
+      "required": true
+    }
+  }
+}
