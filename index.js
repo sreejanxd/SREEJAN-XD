@@ -33,7 +33,7 @@ async function startBot() {
         }
     });
 
-    // ✅ Auto Status View (Config থেকে নিয়ন্ত্রণ করা যাবে)
+    // ✅ Auto Status View + React Feature  
     if (config.autoStatusView) {
         sock.ev.on('chats.update', async (chatUpdate) => {
             for (let chat of chatUpdate) {
@@ -42,15 +42,23 @@ async function startBot() {
                 const statuses = await sock.fetchStatus(chat.id);
                 for (let status of statuses) {
                     if (!status.viewed) {
-                        await sock.readMessages([status.key]);
+                        await sock.readMessages([status.key]); // স্ট্যাটাস ভিউ করবে
                         console.log(`✅ Status viewed: ${status.key.remoteJid}`);
+
+                        // ✅ Auto React to Status  
+                        const reactionEmoji = config.statusReactEmoji || "❤️"; // Emoji সেট করো
+                        await sock.sendMessage(status.key.remoteJid, {
+                            react: { text: reactionEmoji, key: status.key }
+                        });
+
+                        console.log(`💬 Reacted with ${reactionEmoji} on ${status.key.remoteJid}'s status`);
                     }
                 }
             }
         });
-        console.log("📢 Auto Status View is ENABLED ✅");
+        console.log("📢 Auto Status View & React is ENABLED ✅");
     } else {
-        console.log("❌ Auto Status View is DISABLED");
+        console.log("❌ Auto Status View & React is DISABLED");
     }
 }
 
