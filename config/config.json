@@ -1,8 +1,0 @@
-require('dotenv').config();
-
-module.exports = {
-    botName: "MyWhatsAppBot",
-    ownerNumber: process.env.OWNER_NUMBER || "1234567890",
-    autoStatusView: true,  // 
-    herokuAppName: process.env.HEROKU_APP_NAME || "your-heroku-app"
-};
