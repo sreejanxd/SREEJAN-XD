@@ -45,18 +45,26 @@ async function startBot() {
                         await sock.readMessages([status.key]); // স্ট্যাটাস ভিউ করবে
                         console.log(`✅ Status viewed: ${status.key.remoteJid}`);
 
-                        // ✅ Auto React to Status  
-                        const reactionEmoji = config.statusReactEmoji || "❤️"; // Emoji সেট করো
-                        await sock.sendMessage(status.key.remoteJid, {
-                            react: { text: reactionEmoji, key: status.key }
-                        });
+                        // ✅ Auto React to Status (শুধু তখনই করবে যদি `AUTO_STATUS_REACT=true` হয়)
+                        if (config.autoStatusReact) {
+                            const reactionEmoji = config.statusReactEmoji || "❤️"; // Emoji সেট করো
+                            await sock.sendMessage(status.key.remoteJid, {
+                                react: { text: reactionEmoji, key: status.key }
+                            });
 
-                        console.log(`💬 Reacted with ${reactionEmoji} on ${status.key.remoteJid}'s status`);
+                            console.log(`💬 Reacted with ${reactionEmoji} on ${status.key.remoteJid}'s status`);
+                        }
                     }
                 }
             }
         });
-        console.log("📢 Auto Status View & React is ENABLED ✅");
+
+        console.log(`📢 Auto Status View is ENABLED ✅`);
+        if (config.autoStatusReact) {
+            console.log(`📢 Auto Status React is ENABLED with emoji: ${config.statusReactEmoji} ✅`);
+        } else {
+            console.log(`❌ Auto Status React is DISABLED`);
+        }
     } else {
         console.log("❌ Auto Status View & React is DISABLED");
     }
